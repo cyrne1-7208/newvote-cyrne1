@@ -1,5 +1,5 @@
 name: NewVote
-version: 8.77777
+version: 8.77778
 main: net.kunmc.lab.newvote.NewVote
 api-version: 1.15
 commands:
