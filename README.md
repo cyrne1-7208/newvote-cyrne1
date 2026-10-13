@@ -2,11 +2,11 @@
 
 **[日本語版 README](README_ja.md)**
 
-A Spigot plugin that runs in-game player votes with real-time Tab list status visualization.
+A Spigot/Paper/Folia plugin that runs in-game player votes with real-time Tab list status visualization.
 
 ## Overview
 NewVote lets server operators start and stop vote sessions without leaving the game.
-Players cast votes with a single command and see their status reflected immediately in the Tab list.
+Players cast votes with a single command and see their status reflected in the Tab list.
 Vote results are shown to all online players as a ranked summary.
 
 ### Target Users
@@ -21,27 +21,29 @@ Vote results are shown to all online players as a ranked summary.
 - Fixed vote target list via `config.yml` (overrides online player list).
 - Special reveal animation for a specific player (Yanaaaaa-exclusive).
 - Debug logging with configurable stack trace output.
-- Uses only Bukkit/Spigot API — no NMS dependency.
+- Uses only Bukkit/Spigot/Folia API — no NMS dependency.
 
 ## Requirements
 - Java 8 or later
-- Spigot or Paper 1.15.2 or later
+- Spigot/Paper/Folia 1.15.2 or later
 
 **Tested versions:**
 
-| Minecraft | Server | JDK |
+| Minecraft | Server | Java |
 |---|---|---|
-| 1.15.2 | Paper 1.15.2 | JDK 11 |
-| 1.16.5 | Paper 1.16.5 | JDK 16 |
-| 1.21.11 | Paper 1.21.11 | Java 23 |
+| 1.15.2 | Spigot 1.15.2 / Paper 1.15.2 | Java 11 |
+| 1.16.5 | Paper 1.16.5 | Java 16 |
+| 1.21.11 | Paper 1.21.11 / Folia 1.21.11 | Java 21 |
+| 26.2 | Spigot 26.2 / Folia 26.2 | Java 25 |
+| 26.3 | Paper 26.3 | Java 25 |
 
-Code-level compatibility: 1.15.2 – 1.21.x
+Code-level compatibility: Spigot/Paper/Folia 1.15.2 – 26.3
 
 Note: Sound enum differences across versions are handled by a built-in fallback.
 
 ## Status
-- Last README update: 2026-03-11
-- Supported runtime: Spigot/Paper 1.15.2 – 1.21.x / Java 8+
+- Last README update: 2026-10-13
+- Supported runtime: Spigot/Paper/Folia 1.15.2 – 26.3 / Java 8+
 
 ## Installation
 1. Build the plugin jar.
@@ -52,7 +54,7 @@ Note: Sound enum differences across versions are handled by a built-in fallback.
 mvn -DskipTests package
 ```
 
-Output: `target/NewVote-v8.77778.1.jar`
+Output: `target/NewVote-v8.77778.2.jar`
 
 ## Quick Start
 1. Place the jar in `plugins/` and start (or restart) the server.
@@ -139,6 +141,7 @@ When `List` has entries, voting is restricted to that list regardless of who is 
 | Path | Purpose |
 |---|---|
 | `NewVote.java` | Main plugin class, command handling |
+| `SchedulerLogic.java` | Spigot/Paper/Folia scheduler handling |
 | `ScoreBoardLogic.java` | Tab list name update logic |
 | `VoteResultLogic.java` | Vote destination reveal logic |
 | `plugin.yml` | Spigot plugin metadata and command definitions |
@@ -152,7 +155,7 @@ Test with a local Paper server using a small online player group and verify Tab 
 - Vote not starting: confirm you are OP and the plugin loaded without errors.
 - Target not found: ensure the name exactly matches an online player or a `List` entry.
 - Sound errors: the plugin falls back to an alternative `Sound` enum value automatically.
-- Tab list not updating: verify the server is running Spigot/Paper, not vanilla.
+- Tab list not updating: verify the server is running Spigot/Paper/Folia, not vanilla.
 
 ## Acknowledgements
 - Original concept and production: Yanaaaaa

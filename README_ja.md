@@ -2,11 +2,11 @@
 
 **[English README](README.md)**
 
-Spigot サーバー上でプレイヤー投票を実施し、投票状況を Tab リストにリアルタイム表示するプラグインです。
+Spigot/Paper/Folia サーバー上でプレイヤー投票を実施し、投票状況を Tab リストにリアルタイム表示するプラグインです。
 
 ## 概要
 NewVote を使用すると、ゲーム内を離れずに投票セッションを開始・終了できます。
-プレイヤーはコマンド 1 つで投票し、結果は即座に Tab リストへ反映されます。
+プレイヤーはコマンド 1 つで投票し、結果は Tab リストへ反映されます。
 投票終了時には、得票数の順位と集計結果が全プレイヤーに表示されます。
 
 ### 対象ユーザー
@@ -21,27 +21,29 @@ NewVote を使用すると、ゲーム内を離れずに投票セッションを
 - `config.yml` の `List` による固定投票先リストの設定
 - 特定プレイヤー向けの演出機能（Yanaaaaa 専用）
 - スタックトレース出力を制御できるデバッグログ機能
-- Bukkit/Spigot API のみを使用しており、NMS 依存なし
+- Bukkit/Spigot/Folia API のみを使用しており、NMS 依存なし
 
 ## 必要環境
 - Java 8 以上
-- Spigot または Paper 1.15.2 以上
+- Spigot/Paper/Folia 1.15.2 以上
 
 **動作確認済みバージョン:**
 
-| Minecraft | サーバー | JDK |
+| Minecraft | サーバー | Java |
 |---|---|---|
-| 1.15.2 | Paper 1.15.2 | JDK 11 |
-| 1.16.5 | Paper 1.16.5 | JDK 16 |
-| 1.21.11 | Paper 1.21.11 | Java 23 |
+| 1.15.2 | Spigot 1.15.2 / Paper 1.15.2 | Java 11 |
+| 1.16.5 | Paper 1.16.5 | Java 16 |
+| 1.21.11 | Paper 1.21.11 / Folia 1.21.11 | Java 21 |
+| 26.2 | Spigot 26.2 / Folia 26.2 | Java 25 |
+| 26.3 | Paper 26.3 | Java 25 |
 
-コード観点での互換見込み: 1.15.2 - 1.21.x
+コード観点での互換見込み: Spigot/Paper/Folia 1.15.2 - 26.3
 
 補足: バージョン間の Sound enum 差分は内部フォールバックで吸収しています。
 
 ## ステータス
-- README 最終更新日: 2026-03-11
-- 対応環境: Spigot/Paper 1.15.2 - 1.21.x / Java 8 以上
+- README 最終更新日: 2026-10-13
+- 対応環境: Spigot/Paper/Folia 1.15.2 - 26.3 / Java 8 以上
 
 ## インストール
 1. プラグイン jar をビルドします。
@@ -52,7 +54,7 @@ NewVote を使用すると、ゲーム内を離れずに投票セッションを
 mvn -DskipTests package
 ```
 
-生成物: `target/NewVote-v8.77778.1.jar`
+生成物: `target/NewVote-v8.77778.2.jar`
 
 ## クイックスタート
 1. jar を `plugins/` に配置してサーバーを起動します。
@@ -139,6 +141,7 @@ List:
 | パス | 役割 |
 |---|---|
 | `NewVote.java` | プラグイン本体、コマンド処理 |
+| `SchedulerLogic.java` | Spigot/Paper/Folia のスケジューラ処理 |
 | `ScoreBoardLogic.java` | Tab リスト名の更新処理 |
 | `VoteResultLogic.java` | 投票先開示処理 |
 | `plugin.yml` | Spigot プラグインメタデータ・コマンド定義 |
@@ -152,7 +155,7 @@ List:
 - 投票が開始されない: OP 権限を持っているか、プラグインがエラーなく起動しているか確認します。
 - 投票先が見つからない: プレイヤー名またはリストの表記が完全一致しているか確認します。
 - サウンドエラー: プラグインは自動的に代替の `Sound` 値にフォールバックします。
-- Tab リストが更新されない: バニラではなく Spigot/Paper サーバーで実行されているか確認します。
+- Tab リストが更新されない: バニラではなく Spigot/Paper/Folia サーバーで実行されているか確認します。
 
 ## 謝辞
 - 原案および演出協力: Yanaaaaa
