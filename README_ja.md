@@ -162,7 +162,7 @@ List:
 - 参考プラグイン: [TeamKun/VotePlugin](https://github.com/TeamKun/VotePlugin)
 
 ## 生成支援ツール利用
-- 使用した AI: GPT-5.3-Codex（README 作成支援）
+- 使用した AI: GPT-6.1 Sol
 - 利用範囲: ドキュメント構成、文言調整
 - 人手レビュー: コマンド・設定項目・動作説明をソースコードと照合して確認
 

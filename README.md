@@ -162,7 +162,7 @@ Test with a local Paper server using a small online player group and verify Tab 
 - Base reference: [TeamKun/VotePlugin](https://github.com/TeamKun/VotePlugin)
 
 ## AI Usage
-- AI used: GPT-5.3-Codex (README drafting)
+- AI used: GPT-6.1 Sol
 - Usage scope: documentation structure, wording
 - Human review: commands, configuration keys, and behavior verified against source code
 
